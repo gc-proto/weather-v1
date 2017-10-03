@@ -21,7 +21,7 @@ function getGPSLocation () {
 function getGPSLocationW3C () {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(success, fail);
-		document.getElementById('GPSResults').innerHTML = translate("Please wait while your location is being obtained...");
+		document.getElementById('GPSResults').innerHTML = translate("Trying to determine your location...");
 	} else {
 		document.getElementById('GPSResults').innerHTML = translate("Your device's location can not be accessed through your web browser");
 	}
@@ -41,7 +41,7 @@ function success(position) {
     		return (a.dist - b.dist)
     	});
       	console.log(cities);
-	var html = "<p>" + translate("The closest cities relative to Current Location:") + "</p>";
+	var html = "<p>" + translate("The closest cities relative to current location:") + "</p>";
       	html += "<ol>";
       	//document.getElementById('GPSResults').innerHTML = "<ol>";
 
