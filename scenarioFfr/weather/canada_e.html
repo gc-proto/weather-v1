@@ -483,12 +483,103 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <!--[if lt IE 9]>
 <script src="/template/gcweb/js/ie8-wet-boew2.min.js"></script>
 <![endif]-->
-<script src="./GCWeb/css/theme.min.css"></script>
+<script src="./GCWeb/js/theme.min.js"></script>
+<script src="../weather/cacheable/js/city/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../weather/cacheable/js/city/availableTags_e.min.js"></script>
+<script type="text/javascript" src="../weather/city/js/cityjump.js"></script>
+<script>LANG = "en-CA";</script><script src="./gps/js/translate.js"></script>
+<script src="./gps/js/gps.js"></script>
+<script src="./gps/js/langStrings.js"></script>
+<script src="./gps/js/cityLatLon.js"></script>
 
+<script>
+$(document).ready(function(){
+		    $('#gps-jq').click(function(){
+	       if (!$("#gps-jq" ).hasClass("open"))
+		       getGPSLocation();
+	     });
+ 	});
+</script>
 
-<script src="./cacheable/js/city/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="./cacheable/js/city/availableTags_e.min.js"></script>
-<script src="./city/js/cityjump.js"></script>
+<script>
+    document.getElementById("jump").className = "";
+    var max_chars = 50;
+
+    $('#city').keydown( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#city').keyup( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+	
+	
+</script>
+
+<script>
+
+$(document).ready(function() {
+
+function snoopCities(event, ui) {
+    if (ui.item === null || typeof(ui.item) === 'undefined') {
+        $("#city").data("ref", null);
+        return;
+    }
+    
+    switch(ui.item.label) {
+        case "Montréal, QC": {
+            $("#city").data("ref", "city/pages/qc-147_metric_e.html");
+            break;
+			
+		}
+		 case "Ottawa (Kanata - Orléans), ON": {
+            $("#city").data("ref", "city/pages/on-118_metric_e.html");
+            break;
+			
+		}
+
+		case "Toronto, ON": {
+            $("#city").data("ref", "city/pages/on-143_metric_e.html");
+            break;
+			
+		}
+		
+		case "Arnprior, ON": {
+            $("#city").data("ref", "city/pages/on-58_metric_e.html");
+            break;
+			
+		}
+
+        default: {
+            $("#city").data("ref", null);
+        }
+    }
+}
+
+$("#city").autocomplete("option", "select", snoopCities);
+
+$("#cityjump").on("submit", function(e) {
+    e.preventDefault();
+
+    var targetUrl = $("#city").data("ref");
+    if (targetUrl !== null) {
+        window.location.href = targetUrl;
+    }
+    /*
+    else {
+        //Todo: remove this.
+        alert("Unknown destination.");
+    }
+    */
+});
+
+});
+
+</script>
 <script>
     document.getElementById("jump").className = "";
     var max_chars = 50;
