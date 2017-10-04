@@ -14,16 +14,16 @@ function getGPSLocation () {
 	} else if (supportedGeolocAPI() == "blackberry") {
 		getGPSLocationBlackberry();
 	} else {
-		document.getElementById('GPSResults').innerHTML = translate("Your device's location can not be accessed through your web browser");
+		document.getElementById('GPSResults').innerHTML = translate("Votre fureteur ne nous permet pas d'accéder à votre emplacement.");
 	}
 }
 
 function getGPSLocationW3C () {
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(success, fail);
-		document.getElementById('GPSResults').innerHTML = translate("Please wait while your location is being obtained...");
+		document.getElementById('GPSResults').innerHTML = translate("Veuillez patienter pendant que nous déterminons votre emplacement.");
 	} else {
-		document.getElementById('GPSResults').innerHTML = translate("Your device's location can not be accessed through your web browser");
+		document.getElementById('GPSResults').innerHTML = translate("Votre fureteur ne nous permet pas d'accéder à votre emplacement.");
 	}
 }
 function success(position) {
@@ -41,7 +41,7 @@ function success(position) {
     		return (a.dist - b.dist)
     	});
       	console.log(cities);
-	var html = "<p>" + translate("The closest cities relative to Current Location:") + "</p>";
+	var html = "<p>" + translate("Les villes les plus proches sont :") + "</p>";
       	html += "<ol>";
       	//document.getElementById('GPSResults').innerHTML = "<ol>";
 
@@ -75,22 +75,22 @@ function fail(error) {
 	switch(error.code) {
 		case 0:
 			// Unknown error alert error message
-			document.getElementById('GPSResults').innerHTML = translate("Your device's location could not be accessed. An unknown error occured");
+			document.getElementById('GPSResults').innerHTML = translate("Pour l'instant, nous ne pouvons déterminer votre emplacement. Veuillez essayer de nouveau un peu plus tard.");
 			break;
  
 		case 1:
 			// Permission denied alert error message
-			document.getElementById('GPSResults').innerHTML = translate("Your location can not be determined because access to your Location has been denied for this web site. If you would like to use this feature, please allow this web site to access your Location when prompted.");
+			document.getElementById('GPSResults').innerHTML = translate("Votre position ne peut être déterminée parce que l'accès à votre emplacement a été refusé. Si vous souhaitez utiliser cette fonctionnalité, veuillez permettre l'accès à votre emplacement lorsque vous y êtes invité.");
 			break;
 
 		case 2:
 			// Position Unavailable
-			document.getElementById('GPSResults').innerHTML = translate("Your position is unavailable at the moment. Please try again later.");
+			document.getElementById('GPSResults').innerHTML = translate("Votre emplacement est présentement non disponible. Veuillez réessayer plus tard.");
 			break;
 
 		case 3:
 			// Timeout
-			document.getElementById('GPSResults').innerHTML = translate("Your position could not be obtained because the request has timed out");
+			document.getElementById('GPSResults').innerHTML = translate("Votre emplacement ne peut être déterminé parce que le temps alloué s'est écoulé.");
 			break;
 	}
 }
@@ -111,7 +111,7 @@ function locationCallBack() {
 	numUpdates++;
 }
 function getGPSLocationBlackberry() {
-	document.getElementById('GPSResults').innerHTML = translate("Please wait while your location is being obtained...");
+	document.getElementById('GPSResults').innerHTML = translate("Veuillez patienter pendant que nous déterminons votre emplacement.");
 	t = setTimeout("blackberryGPSTimeout()",20000);
 	blackberry.location.setAidMode(2);
 	blackberry.location.onLocationUpdate("locationCallBack()");
@@ -119,7 +119,7 @@ function getGPSLocationBlackberry() {
 }
 
 function blackberryGPSTimeout() {
-	document.getElementById('GPSResults').innerHTML = translate("Your position could not be obtained because the request has timed out.");
+	document.getElementById('GPSResults').innerHTML = translate("Votre emplacement ne peut être déterminé parce que le temps alloué s'est écoulé.");
 }
 
 function findClosestCities(lat1,lon1,lat2,lon2) {
