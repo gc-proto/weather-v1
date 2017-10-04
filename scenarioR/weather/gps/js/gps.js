@@ -63,7 +63,7 @@ function success(position) {
          			else {
             			cityname = cities[i].name_e;
          			}
-      		html += "<li><a href=\"/city/pages/" + cities[i].key + "_metric_" + pagelang + ".html\">" + cityname + " (" + cities[i].dist + " km)</a></li>";
+      		html += "<li><a href=\"city/pages/" + cities[i].key + "_metric_" + pagelang + ".html\">" + cityname + " (" + cities[i].dist + " km)</a></li>";
       		}
       	}
       	html += "</ol>";
