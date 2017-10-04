@@ -41,7 +41,7 @@ function success(position) {
     		return (a.dist - b.dist)
     	});
       	console.log(cities);
-	var html = "<p>" + translate("The closest cities relative to current location:") + "</p>";
+	var html = "<p>" + translate("Closest forecasts:") + "</p>";
       	html += "<ol>";
       	//document.getElementById('GPSResults').innerHTML = "<ol>";
 
