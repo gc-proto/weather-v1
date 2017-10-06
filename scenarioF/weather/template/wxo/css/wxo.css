@@ -332,12 +332,12 @@ p + #cityjump, ul + #cityjump{
 }
 
 #cityjump #city {
-   width: 10em;
+   width: 8em;
    margin: 0;
 }
 
 #cityjump #jump, #cityjump #jumpnojs {
-   width: 5em;
+   width: 3em;
    display: inline;
 }
 
