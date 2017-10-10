@@ -109,78 +109,27 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 </header>
 
 <div class="mwspromotion section">
-
-
+<!-- in theory this would change among the different ones on each load, in practice it doesn't matter -->
    <aside class="prm-flpr">
-        <div class="container"><div class="row">
+        <div class="container chooseone"><div class="row">
             <h3 class="wb-inv">Promotions</h3>
-            <div class="wb-tabs carousel-s2 show-thumbs playing slow">
-                <ul role="tablist">
-                    
-                        <li class="active"><a href="#tab1" title="Tab 1: 75&lt;sup>th&lt;/sup> Anniversary of the Dieppe Raid"><img class="img-responsive" src="../weather/img/promos/20170817-1-1170x347.jpg" alt=""></a></li>
-                    
-                    
-                    
-                        <li><a href="#tab2" title="Tab 2: &lt;abbr title=&#34;Prime Minister&#34;>PM&#39;s&lt;/abbr> Statement on the 75&lt;sup>th&lt;/sup> Anniversary of the Dieppe Raid"><img class="img-responsive" src="../weather/img/promos/20170819-2-1170x347.jpg" alt=""></a></li>
-                    
-                    
-                        <li><a href="#tab3" title="Tab 3: Learning opportunities about the Dieppe Raid."><img class="img-responsive" src="../weather/img/promos/20170819-3-1170x347.jpg" alt=""></a></li>
-                    
-                </ul>
-                <div class="tabpanels">
-                
-                    
-                    <div role="tabpanel" id="tab1" class="in fade">
-                        <a href="http://www.veterans.gc.ca/eng/remembrance/history/second-world-war/dieppe-raid/75-anniversary?utm_source=canada.ca&utm_medium=carousel&utm_campaign=dieppe75%20" class="learmore">
-                            <figure>
-
-                                <img class="img-responsive" src="../weather/img/promos/20170817-1-1170x347.jpg" alt="">
-                                <figcaption>
-                                    
-                                        <p>75<sup>e</sup> Anniversaire du Raid sur Dieppe</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                
-                    
-                    <div role="tabpanel" id="tab2" class="out fade">
-                        <a href="http://pm.gc.ca/eng/news/2017/08/19/statement-prime-minister-75th-anniversary-dieppe-raid?utm_source=pm_eng&utm_medium=carousel_Can_ca&utm_campaign=dieppe75" class="learmore">
-                            <figure>
-
-                                <img class="img-responsive" src="../weather/img/promos/20170819-2-1170x347.jpg" alt="">
-                                <figcaption>
-                                    
-                                        <p>Déclaration du Premier ministre à l'occasion du 75<sup>e</sup> anniversaire du Raid sur Dieppe</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                
-                    
-                    <div role="tabpanel" id="tab3" class="out fade">
-                        <a href="http://www.veterans.gc.ca/eng/remembrance/information-for/educators/learning-modules/dieppe-raid?utm_source=canada.ca&utm_medium=%20goc_initiative&utm_campaign=dieppe75" class="learmore">
-                            <figure>
-
-                                <img class="img-responsive" src="../weather/img/promos/20170819-3-1170x347.jpg" alt="">
-                                <figcaption>
-                                    
-                                        <p>L'histoire du raid de Dieppe</p>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                
-                </div>
-            </div>
-           </div>
-        </div>
+			<div class="col-xs-12">
+				<a href="">
+					<img class="img-responsive" src="https://www.canada.ca/content/dam/canada/carousel/20171002-1-1170x347.jpg" alt="">
+				</a>
+			</div>
+            <div class="col-sm-8 col-xs-12">
+				<a href="sdf" class="learnmore">
+					<abbr title="Prime Minister">Le PM</abbr> Trudeau accueillir la nouvelle gouverneure générale du Canada, Son Excellence la très honorable Julie Payette
+				</a>
+			</div>   
+			<div class="col-sm-3 col-xs-12 text-right">
+				<a href="dfgasdfg" class="text-right">Plusieurs priorités...</a>
+			</div>               
+		</div></div>
     </aside>    
-
-
-
-
 </div>
+
 
 
         <main role="main" property="mainContentOfPage" class="container">
@@ -200,24 +149,28 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   </div> 
  </div> 
  <div class="wb-eqht row"> 
-  <section class="col-lg-4 col-md-6"> 
-   <h3 class="h5"><a href="./canada_e.html">Météo</a></h3> 
+ 
+ <section class="col-lg-4 col-md-6"> 
+   <h3 class="h5"><a href="canada_e.html">Météo</a></h3> 
    
- 
- 
- 
-   <p>Renseignements sur les conditions actuelles, les prévisions à court et long terme et les alertes météo publiques, accès aux prévisions maritimes, à la Cote air santé et aux données climatiques historiques.</p> 
-    <!-- ACCESS CITY -->
+   
+   <p>Obtenez les informations météo, les prévisions météo détaillées pour les 24 prochaines heures et les prévisions sur sept jours les plus récentes pour certaines localités à travers le Canada.</p> 
+			<details id="gps-jq">
+			<summary>Utiliser emplacement actuel</summary>
+			<div id="GPSResults"></div>
+			
+<!-- ACCESS CITY -->
 <div>
-	
-	<form role="search" id="cityjump" method="GET" action="">
+<form role="search" id="cityjump" method="GET" action="">
+	<label for "city">Ou cherchez une ville</label>
    	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Accéder à une ville</label>
-   	<input id="city" type="text" name="city" pattern=".{2,50}" title="S’il vous plaît taper au moins deux caractères (Au maximum 50)" required data-h5-errorid="invalid-city" placeholder="Accéder à une ville" />
-  	<button style="border-radius: 3px !important; border-style: outset !important; min-height: 36px; min-width: 40px; border: 1px solid;"><a href="city/jump_e.html" style="text-decoration: none !important;"> Aller </a></button>
+   	<input id="city" type="text" name="city" pattern=".{2,50}" title="Please enter at least two characters (Up to 50)" required data-h5-errorid="invalid-city" placeholder="Accéder à une ville" />
+   	<button style="border-radius: 3px !important; border-style: outset !important; min-height: 36px; min-width: 40px; border: 1px solid; background-color: #eaebed;"><a href="city/jump_e.html" style="text-decoration: none !important; color: black !important;"> Aller </a></button>
 	<div id="invalid-city"></div>
-</form>
+</form> 
+</div>
+  
    
- </div>
   </section> 
   <section class="col-lg-4 col-md-6"> 
     <h3 class="h5"><a href="/fr/services/emplois/opportunites.html">Trouver un emploi</a></h3> 
@@ -360,11 +313,22 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
 <![endif]-->
 <script src="./GCWeb/js/theme.min.js"></script>
-
-<script src="./GCWeb/js/theme.min.js"></script>
 <script src="../weather/cacheable/js/city/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="../weather/cacheable/js/city/availableTags_e.min.js"></script>
 <script type="text/javascript" src="../weather/city/js/cityjump.js"></script>
+<script>LANG = "en-CA";</script><script src="./gps/js/translate.js"></script>
+<script src="./gps/js/gps.js"></script>
+<script src="./gps/js/langStrings.js"></script>
+<script src="./gps/js/cityLatLon.js"></script>
+
+<script>
+$(document).ready(function(){
+		    $('#gps-jq').click(function(){
+	       if (!$("#gps-jq" ).hasClass("open"))
+		       getGPSLocation();
+	     });
+ 	});
+</script>
 
 <script>
     document.getElementById("jump").className = "";
@@ -445,6 +409,7 @@ $("#cityjump").on("submit", function(e) {
 });
 
 </script>
+
 
 </body>
 </html>
