@@ -74,7 +74,7 @@
 		</section>
 
 <div class="row">
-			
+
 	<div class="brand col-xs-8 col-sm-9 col-md-6">
 		<a href="https://www.canada.ca/en.html"><object type="image/svg+xml" tabindex="-1" data="../template/GCWeb/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada / <span lang="fr">Gouvernement du Canada</span></span></a>
 	</div>
@@ -136,7 +136,8 @@
 	<div class="container">
 	<div class="row">
 		<ol class="breadcrumb">
-		<li><a href="../en.html">Home</a></li><li>...</li>
+		<li><a href="../en.html">Home</a></li>
+		<li>&hellip;</li>
 		<li><a href="../index_e.html">Weather information</a></li>
 		</ol>
 	</div>
@@ -150,12 +151,12 @@
 
 		<main role="main" property="mainContentOfPage" class="container">
    <h1 property="name" id="wb-cont" style="padding-top: 10px !important;">No forecast for "Arnprior"</h1>
-				
+
 <p>Try searching for nearby locations to find a relevant forecast.</p>
 
 <form class="pull-left" role="search" id="cityjump" method="GET" action="">
 	<label class="pull-left" for="city"><b>Try another location</b></label><br />
-   	<input class="pull-left" id="city" type="text" name="city" pattern=".{2,50}" required data-h5-errorid="invalid-city" placeholder="" size="50" style="margin-right: 1em;"/> 
+   	<input class="pull-left" id="city" type="text" name="city" pattern=".{2,50}" required data-h5-errorid="invalid-city" placeholder="" size="50" style="margin-right: 1em;"/>
    	<input type="submit" id="jump" class="pull-left" value="Go"/>
    	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
 	<div id="invalid-city"></div>
@@ -197,7 +198,7 @@
 
 
 
- 
+
 
 <section class="hidden-print"  id="weather-topics">
    <h2 class="wb-inv">What we are doing</h2>
@@ -328,8 +329,8 @@
             $(this).val($(this).val().substr(0, max_chars));
         }
     });
-	
-	
+
+
 </script>
 
 <script>
@@ -341,19 +342,19 @@ function snoopCities(event, ui) {
         $("#city").data("ref", null);
         return;
     }
-    
+
     switch(ui.item.label) {
-       
+
 		 case "Ottawa (Kanata - Orléans), ON": {
             $("#city").data("ref", "pages/on-118_metric_e.html");
             break;
-			
+
 		}
 
 		case "Renfrew, ON": {
             $("#city").data("ref", "pages/on-58_metric_e.html");
             break;
-			
+
 		}
 
         default: {
@@ -384,4 +385,3 @@ $("#cityjump").on("submit", function(e) {
 </script>
    </body>
    </html>
-
