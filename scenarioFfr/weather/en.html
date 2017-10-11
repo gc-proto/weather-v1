@@ -371,6 +371,11 @@ function snoopCities(event, ui) {
             break;
 			
 		}
+		 case "Ottawa": {
+            $("#city").data("ref", "city/pages/on-118_metric_e.html");
+            break;
+			
+		}
 
 		case "Toronto, ON": {
             $("#city").data("ref", "city/pages/on-143_metric_e.html");
@@ -378,33 +383,35 @@ function snoopCities(event, ui) {
 			
 		}
 		
-		case "Arnprior, ON": {
+		case "Renfrew, ON": {
             $("#city").data("ref", "city/pages/on-58_metric_e.html");
             break;
 			
 		}
 
         default: {
-            $("#city").data("ref", null);
+            $("#city").data("ref", "city/jump_e.html");
         }
     }
 }
 
 $("#city").autocomplete("option", "select", snoopCities);
 
+// if city is undefined, get the contents of cityjump.city and use that to populate another set of cases for 
+
 $("#cityjump").on("submit", function(e) {
+
     e.preventDefault();
 
     var targetUrl = $("#city").data("ref");
-    if (targetUrl !== null) {
-        window.location.href = targetUrl;
+    if (targetUrl == null) {
+        window.location.href = "city/jump_e.html";
     }
-    /*
+
     else {
-        //Todo: remove this.
-        alert("Unknown destination.");
+		window.location.href = targetUrl;
     }
-    */
+
 });
 
 });
