@@ -155,7 +155,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <!-- ACCESS CITY -->
 <div>
 
-<form role="search" id="cityjump" method="GET" action="">
+<form role="search" id="cityjump" method="GET" action="city/jump_e.html">
 	<label for "city">Or enter a city to search</label>
    	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
    	<input id="city" type="text" name="city" pattern=".{2,50}" title="Please enter at least two characters (Up to 50)" required data-h5-errorid="invalid-city" placeholder="Find a city" />
@@ -307,7 +307,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <script src="./GCWeb/js/theme.min.js"></script>
 <script src="../weather/cacheable/js/city/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="../weather/cacheable/js/city/availableTags_e.min.js"></script>
-<script type="text/javascript" src="../weather/city/js/cityjump.js"></script>
 <script>LANG = "en-CA";</script><script src="./gps/js/translate.js"></script>
 <script src="./gps/js/gps.js"></script>
 <script src="./gps/js/langStrings.js"></script>
@@ -383,20 +382,7 @@ function snoopCities(event, ui) {
 
 $("#city").autocomplete("option", "select", snoopCities);
 
-$("#cityjump").on("submit", function(e) {
-    e.preventDefault();
 
-    var targetUrl = $("#city").data("ref");
-    if (targetUrl !== null) {
-        window.location.href = targetUrl;
-    }
-    /*
-    else {
-        //Todo: remove this.
-        alert("Unknown destination.");
-    }
-    */
-});
 
 });
 
