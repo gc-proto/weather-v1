@@ -115,7 +115,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 </div>
 	</nav>
 </header>
-    
+
 <div class="container hidden-print">
 
 <span class='pull-right profile-link'><a href='/myprofile/index_e.html'></a></span>
@@ -135,7 +135,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 		<h2 class="modal-title">Weather shortcuts</h2>
 	</header>
 	<div class="modal-body">
-	
+
                                 <li><a href="../../../weather/canada_e.html">Canadian Weather</a></li>
                                 <li><a href="../../../weather/radar/index_e.html">Radar - Canada</a></li>
                                 <li><a href="../../../weather/satellite/index_e.html">Satellite - Canada</a></li>
@@ -209,7 +209,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   <area href="/city/pages/on-94_metric_e.html" coords="171,341,243,365" shape="rect" alt="Windsor" title="Windsor" />
 </map>
 
-   
+
 	</div>
 	<aside class="col-md-4 hidden-xs hidden-sm">
 		      <div class="well">
@@ -427,7 +427,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <section><h2 class="mrgn-tp-0"><a id="R">R-S</a></h2>
 <ul class="list-unstyled">
 <li><a href="/city/pages/on-104_metric_e.html">Red Lake</a></li>
-<li><a href="/city/pages/on-58_metric_e.html">Renfrew</a></li>
+<li><a href="../../../weather/city/pages/on-58_metric_e.html">Renfrew</a></li>
 <li><a href="/city/pages/on-59_metric_e.html">Richmond Hill</a></li>
 <li><a href="/city/pages/on-172_metric_e.html">Rodney</a></li>
 <li><a href="/city/pages/on-141_metric_e.html">Rondeau (Provincial Park)</a></li>
@@ -489,7 +489,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
                     <ul class="list-unstyled mrgn-tp-sm"><li><a class="btn btn-default btn-sm btn-block" role="button" href="/provincialsummary_table/index_e.html?prov=on"><p class="text-left mrgn-lft-md mrgn-bttm-0">Provincial Summary</p></a></li>
          </ul>
       </div>
-    
+
 <div class="hidden-xs">
 <p><a href="/provincialsummary_table/index_e.html?prov=on">[Provincial Summary]</a>&nbsp;</p>
 <div class="well"><div class="row">
@@ -671,16 +671,16 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 </ul>
 </div></div>
 </div>
-  
-    
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
 <section class="hidden-print"  id="weather-topics">
 	<h2 class="wb-inv">What we are doing</h2>
 	 <div class="row wb-eqht">
@@ -870,8 +870,8 @@ $(document).ready(function(){
             $(this).val($(this).val().substr(0, max_chars));
         }
     });
-	
-	
+
+
 </script>
 
 <script>
@@ -883,34 +883,34 @@ function snoopCities(event, ui) {
         $("#city").data("ref", null);
         return;
     }
-    
+
     switch(ui.item.label) {
         case "Montréal, QC": {
             $("#city").data("ref", "../../city/pages/qc-147_metric_e.html");
             break;
-			
+
 		}
 		 case "Ottawa (Kanata - Orléans), ON": {
             $("#city").data("ref", "../../city/pages/on-118_metric_e.html");
             break;
-			
+
 		}
 		 case "Ottawa": {
             $("#city").data("ref", "../../city/pages/on-118_metric_e.html");
             break;
-			
+
 		}
 
 		case "Toronto, ON": {
             $("#city").data("ref", "../../city/pages/on-143_metric_e.html");
             break;
-			
+
 		}
-		
+
 		case "Renfrew, ON": {
             $("#city").data("ref", "../../city/pages/on-58_metric_e.html");
             break;
-			
+
 		}
 
         default: {
@@ -921,7 +921,7 @@ function snoopCities(event, ui) {
 
 $("#city").autocomplete("option", "select", snoopCities);
 
-// if city is undefined, get the contents of cityjump.city and use that to populate another set of cases for 
+// if city is undefined, get the contents of cityjump.city and use that to populate another set of cases for
 
 $("#cityjump").on("submit", function(e) {
 
