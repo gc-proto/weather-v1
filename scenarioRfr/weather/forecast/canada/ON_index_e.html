@@ -122,9 +122,11 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 	<a href="#weather-shortcuts" class="overlay-lnk pull-right btn btn-default" aria-controls="mid-screen" role="button">Sujets météorologiques</a>
 	<span id="wxo-divider" class="pull-right wb-invisible">|&#160;</span>
 	<form class="mrgn-rght-sm pull-right" role="search" id="cityjump" method="GET" action="">
-   	<label id="search-label" for="city" accesskey="g" class="pull-right wb-invisible">Accéder à une ville</label>
-   	<input name="city" pattern=".{2,50}" placeholder="Accéder à une ville" />
-  <button style="border-radius: 3px !important; border-style: outset !important; min-height: 36px; min-width: 40px; border: 1px solid; background-color: #eaebed;"><a href="../../city/jump_e.html" style="text-decoration: none !important; color: black !important;"> Aller </button>
+   	<label id="search-label" for="city" accesskey="g" class="pull-right wb-invisible">Access city</label>
+   	<input id="city" type="text" name="city" pattern=".{2,50}" title="Please enter at least two characters (Up to 50)" required data-h5-errorid="invalid-city" placeholder="Accéder à une ville" />
+   	<input type="hidden" name="lang" value="e"/>
+   	<input type="hidden" name="unit" value=""/>
+   	<input type="submit" id="jump" class="" value="Aller"/>
    	<noscript><input type="submit" id="jumpnojs" value="Aller" formnovalidate/></noscript>
 	<div id="invalid-city"></div>
 </form>
@@ -425,7 +427,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <section><h2 class="mrgn-tp-0"><a id="R">R-S</a></h2>
 <ul class="list-unstyled">
 <li><a href="/city/pages/on-104_metric_e.html">Red Lake</a></li>
-<li><a href="../../../weather/city/pages/on-58_metric_e.html">Renfrew</a></li>
+<li><a href="/city/pages/on-58_metric_e.html">Renfrew</a></li>
 <li><a href="/city/pages/on-59_metric_e.html">Richmond Hill</a></li>
 <li><a href="/city/pages/on-172_metric_e.html">Rodney</a></li>
 <li><a href="/city/pages/on-141_metric_e.html">Rondeau (Provincial Park)</a></li>
@@ -616,7 +618,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <li><a href="/city/pages/on-27_metric_e.html">Prince Edward (Picton)</a></li>
 <li><a href="/city/pages/on-57_metric_e.html">Quinte West</a></li>
 <li><a href="/city/pages/on-104_metric_e.html">Red Lake</a></li>
-<li><a href="../../../weather/city/pages/on-58_metric_e.html">Renfrew</a></li>
+<li><a href="/city/pages/on-58_metric_e.html">Renfrew</a></li>
 <li><a href="/city/pages/on-59_metric_e.html">Richmond Hill</a></li>
 <li><a href="/city/pages/on-172_metric_e.html">Rodney</a></li>
 <li><a href="/city/pages/on-141_metric_e.html">Rondeau (Provincial Park)</a></li>
@@ -851,6 +853,93 @@ $(document).ready(function(){
 		       getGPSLocation();
 	     });
  	});
+</script>
+
+<script>
+    document.getElementById("jump").className = "";
+    var max_chars = 50;
+
+    $('#city').keydown( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#city').keyup( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+	
+	
+</script>
+
+<script>
+
+$(document).ready(function() {
+
+function snoopCities(event, ui) {
+    if (ui.item === null || typeof(ui.item) === 'undefined') {
+        $("#city").data("ref", null);
+        return;
+    }
+    
+    switch(ui.item.label) {
+        case "Montréal, QC": {
+            $("#city").data("ref", "../../city/pages/qc-147_metric_e.html");
+            break;
+			
+		}
+		 case "Ottawa (Kanata - Orléans), ON": {
+            $("#city").data("ref", "../../city/pages/on-118_metric_e.html");
+            break;
+			
+		}
+		 case "Ottawa": {
+            $("#city").data("ref", "../../city/pages/on-118_metric_e.html");
+            break;
+			
+		}
+
+		case "Toronto, ON": {
+            $("#city").data("ref", "../../city/pages/on-143_metric_e.html");
+            break;
+			
+		}
+		
+		case "Renfrew, ON": {
+            $("#city").data("ref", "../../city/pages/on-58_metric_e.html");
+            break;
+			
+		}
+
+        default: {
+            $("#city").data("ref", "../../city/jump_e.html");
+        }
+    }
+}
+
+$("#city").autocomplete("option", "select", snoopCities);
+
+// if city is undefined, get the contents of cityjump.city and use that to populate another set of cases for 
+
+$("#cityjump").on("submit", function(e) {
+
+    e.preventDefault();
+
+    var targetUrl = $("#city").data("ref");
+    if (targetUrl == null) {
+        window.location.href = "../../city/jump_e.html";
+    }
+
+    else {
+		window.location.href = targetUrl;
+    }
+
+});
+
+});
+
 </script>
 
 	</body>

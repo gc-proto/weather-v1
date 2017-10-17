@@ -855,5 +855,92 @@ $(document).ready(function(){
  	});
 </script>
 
+<script>
+    document.getElementById("jump").className = "";
+    var max_chars = 50;
+
+    $('#city').keydown( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#city').keyup( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+	
+	
+</script>
+
+<script>
+
+$(document).ready(function() {
+
+function snoopCities(event, ui) {
+    if (ui.item === null || typeof(ui.item) === 'undefined') {
+        $("#city").data("ref", null);
+        return;
+    }
+    
+    switch(ui.item.label) {
+        case "Montréal, QC": {
+            $("#city").data("ref", "../../city/pages/qc-147_metric_e.html");
+            break;
+			
+		}
+		 case "Ottawa (Kanata - Orléans), ON": {
+            $("#city").data("ref", "../../city/pages/on-118_metric_e.html");
+            break;
+			
+		}
+		 case "Ottawa": {
+            $("#city").data("ref", "../../city/pages/on-118_metric_e.html");
+            break;
+			
+		}
+
+		case "Toronto, ON": {
+            $("#city").data("ref", "../../city/pages/on-143_metric_e.html");
+            break;
+			
+		}
+		
+		case "Renfrew, ON": {
+            $("#city").data("ref", "../../city/pages/on-58_metric_e.html");
+            break;
+			
+		}
+
+        default: {
+            $("#city").data("ref", "../../city/jump_e.html");
+        }
+    }
+}
+
+$("#city").autocomplete("option", "select", snoopCities);
+
+// if city is undefined, get the contents of cityjump.city and use that to populate another set of cases for 
+
+$("#cityjump").on("submit", function(e) {
+
+    e.preventDefault();
+
+    var targetUrl = $("#city").data("ref");
+    if (targetUrl == null) {
+        window.location.href = "../../city/jump_e.html";
+    }
+
+    else {
+		window.location.href = targetUrl;
+    }
+
+});
+
+});
+
+</script>
+
 	</body>
 </html>

@@ -139,8 +139,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
  <div class="row"> 
   <div class="col-md-12"> 
-   <h1 class="h1">Services et renseignements les plus demandés</h1> 
-   <p class="pagetag">Accédez rapidement et facilement aux services et aux renseignements les plus demandés du gouvernement du Canada.</p> 
+   
    <!--
    <div class="alert alert-info"> 
     <p>Please help improve our website. <a href="http://fluidsurveys.com/surveys/neo2/esdc-feb-2016/langeng/">See if you qualify</a>.</p> 
@@ -165,7 +164,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 	<label for "city">Ou cherchez une ville</label>
    	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Accéder à une ville</label>
    	<input id="city" type="text" name="city" pattern=".{2,50}" title="Please enter at least two characters (Up to 50)" required data-h5-errorid="invalid-city" placeholder="Accéder à une ville" />
-   	<button style="border-radius: 3px !important; border-style: outset !important; min-height: 36px; min-width: 40px; border: 1px solid; background-color: #eaebed;"><a href="city/jump_e.html" style="text-decoration: none !important; color: black !important;"> Aller </a></button>
+   	<input type="submit" id="jump" class="" value="Aller"/>
+   	<noscript><input type="submit" id="jumpnojs" value="Aller" formnovalidate/></noscript>
 	<div id="invalid-city"></div>
 </form> 
 </div>
@@ -370,6 +370,11 @@ function snoopCities(event, ui) {
             break;
 			
 		}
+		 case "Ottawa": {
+            $("#city").data("ref", "city/pages/on-118_metric_e.html");
+            break;
+			
+		}
 
 		case "Toronto, ON": {
             $("#city").data("ref", "city/pages/on-143_metric_e.html");
@@ -377,33 +382,35 @@ function snoopCities(event, ui) {
 			
 		}
 		
-		case "Arnprior, ON": {
+		case "Renfrew, ON": {
             $("#city").data("ref", "city/pages/on-58_metric_e.html");
             break;
 			
 		}
 
         default: {
-            $("#city").data("ref", null);
+            $("#city").data("ref", "city/jump_e.html");
         }
     }
 }
 
 $("#city").autocomplete("option", "select", snoopCities);
 
+// if city is undefined, get the contents of cityjump.city and use that to populate another set of cases for 
+
 $("#cityjump").on("submit", function(e) {
+
     e.preventDefault();
 
     var targetUrl = $("#city").data("ref");
-    if (targetUrl !== null) {
-        window.location.href = targetUrl;
+    if (targetUrl == null) {
+        window.location.href = "city/jump_e.html";
     }
-    /*
+
     else {
-        //Todo: remove this.
-        alert("Unknown destination.");
+		window.location.href = targetUrl;
     }
-    */
+
 });
 
 });
