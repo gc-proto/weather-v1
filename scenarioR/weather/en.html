@@ -152,17 +152,18 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 			<div id="GPSResults"></div>
 
 <!-- ACCESS CITY -->
-<div>
-<form role="search" id="cityjump" method="GET" action="">
-	<label for "city">Or enter a city to search</label>
-   	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
-   	<input id="city" type="text" name="city" />
-   	<input type="submit" id="jump" class="" value="Go" />
-   	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
-	<div id="invalid-city"></div>
-</form>
-</div>
+
    </details>
+   <div>
+   <form role="search" id="cityjump" method="GET" action="">
+   	<label for "city">Or enter a city to search</label>
+      	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
+      	<input id="city" type="text" name="city" />
+      	<input type="submit" id="jump" class="" value="Go" />
+      	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
+   	<div id="invalid-city"></div>
+   </form>
+   </div>
 
     </section>
   <section class="col-lg-4 col-md-6">
@@ -315,7 +316,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 $(document).ready(function() {
 
-
+  $('#gps-jq-summary').click(function(){
+     if (!$("#gps-jq").open)
+       getGPSLocation();
+  });
 
 function snoopCities(event, ui) {
     switch(ui.item.label) {
