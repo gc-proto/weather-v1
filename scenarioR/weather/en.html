@@ -147,7 +147,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 
    <p>Get the latest weather, 24hr detailed forecast and seven day forecast for locations across Canada. Plus, view local radar and satellite imagery.</p>
-			<details id="gps-jq">
+			<details id="gps-jq" style="width:85%">
 			<summary id="gps-jq-summary">Get weather for your location</summary>
 			<div id="GPSResults"></div>
 
@@ -363,9 +363,6 @@ function snoopCities(event, ui) {
 
     }
 }
-
-
-document.getElementById("city").focus();
 
 $("#city").autocomplete("option", "select", snoopCities);
 
