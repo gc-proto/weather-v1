@@ -317,9 +317,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 $(document).ready(function() {
 
   $('#gps-jq-summary').click(function(){
-    alert("trying");
+
    if (!$("#gps-jq" ).hasClass("open"))
      getGPSLocation();
+     alert("Getting GPS");
  });
 
 function snoopCities(event, ui) {
