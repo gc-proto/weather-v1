@@ -155,7 +155,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <div>
 <form role="search" id="cityjumpNEW" method="GET" action="city/jump_e.html">
 	<label for "cityNEW">Or search for a city</label><br/>
-   	<label id="search-label" for="cityNEW" accesskey="g" class="wb-invisible">Find a city</label>
    	<input id="cityNEW" type="text" name="city" width="8"/>
    	<input type="submit" id="jumpNEW" class="" value="Go" />
 	<div id="invalid-city"></div>
@@ -336,49 +335,8 @@ $(document).ready(function() {
        getGPSLocation();
   });
 
-function snoopCities(event, ui) {
-
-    switch(ui.item.label) {
-        case "Montréal, QC": {
-            $("#city").data("ref", "city/pages/qc-147_metric_e.html");
-            break;
-    		}
-    		 case "Ottawa (Kanata - Orléans), ON": {
-                $("#city").data("ref", "city/pages/on-118_metric_e.html");
-                break;
-    		}
-    		 case "Ottawa": {
-                $("#city").data("ref", "city/pages/on-118_metric_e.html");
-                break;
-    		}
-    		case "Toronto, ON": {
-                $("#city").data("ref", "city/pages/on-143_metric_e.html");
-                break;
-    		}
-    		case "Renfrew, ON": {
-                $("#city").data("ref", "city/pages/on-58_metric_e.html");
-                break;
-    		}
-
-    }
 }
 
-//$("#city").autocomplete("option", "select", snoopCities);
-
-// if there's no city, just go to the default page
-$("#cityjump").on("submit", function(e) {
-    e.preventDefault();
-    var targetUrl = $("#city").data("ref");
-    if (targetUrl == null) {
-        window.location.href = "city/jump_e.html";
-    }
-    else {
-		    window.location.href = targetUrl;
-    }
-
-});
-
-});
 
 </script>
 
