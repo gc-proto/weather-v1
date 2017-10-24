@@ -152,18 +152,17 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 			<div id="GPSResults"></div>
 
 <!-- ACCESS CITY -->
-
+<div>
+<form role="search" id="cityjump" method="GET" action="">
+	<label for "city">Or enter a city to search</label>
+   	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
+   	<input id="city" type="text" name="city" />
+   	<input type="submit" id="jump" class="" value="Go" />
+   	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
+	<div id="invalid-city"></div>
+</form>
+</div>
    </details>
-   <div>
-   <form role="search" id="cityjump" method="GET" action="">
-   	<label for "city">Or enter a city to search</label>
-      	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
-      	<input id="city" type="text" name="city" />
-      	<input type="submit" id="jump" class="" value="Go" />
-      	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
-   	<div id="invalid-city"></div>
-   </form>
-   </div>
 
     </section>
   <section class="col-lg-4 col-md-6">
@@ -307,6 +306,24 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <script src="../weather/cacheable/js/city/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="../weather/cacheable/js/city/availableTags_e.min.js"></script>
 <script type="text/javascript" src="../weather/city/js/cityjump.js"></script>
+
+    document.getElementById("jump").className = "";
+    var max_chars = 50;
+
+    $('#city').keydown( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#city').keyup( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+</script>
+
+
 <script>LANG = "en-CA";</script><script src="./gps/js/translate.js"></script>
 <script src="./gps/js/gps.js"></script>
 <script src="./gps/js/langStrings.js"></script>
