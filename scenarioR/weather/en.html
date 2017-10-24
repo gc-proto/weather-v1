@@ -322,10 +322,7 @@ $(document).ready(function() {
   });
 
 function snoopCities(event, ui) {
-    if (ui.item === null || typeof(ui.item) === 'undefined') {
-        $("#city").data("ref", null);
-        return;
-    }
+
 
     switch(ui.item.label) {
         case "Montréal, QC": {
