@@ -152,19 +152,29 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 <!-- ACCESS CITY -->
 
-   </details>
+<p><a href="#centred-popup-modal" aria-controls="centred-popup-modal" class="wb-lbx lbx-modal" role="button">Or search for a city</a></p>
 
-    </section>
-    <div>
+<section id="centred-popup-modal" class="mfp-hide modal-dialog modal-content overlay-def">
+	<header class="modal-header">
+		<h2 class="modal-title">Forecast search</h2>
+	</header>
+	<div class="modal-body">
     <form role="search" id="cityjump" method="GET" action="">
-      <label for "city">Or search for a city</label><br />
+      <label for "city">Enter city to search</label><br />
         <label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
         <input id="city" type="text" name="city" />
         <input type="submit" id="jump" class="" value="Go" />
         <noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
       <div id="invalid-city"></div>
     </form>
-    </div>
+	</div>
+</section>
+
+
+   </details>
+
+    </section>
+
   <section class="col-lg-4 col-md-6">
    <h3 class="h5"><a href="/en/services/jobs/opportunities.html">Find a job</a></h3>
    <p>Find public and private sector job opportunities and hiring programs, apply or extend a work permit, get a Social Insurance Number, a criminal record check or a security clearance.</p>
