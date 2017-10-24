@@ -157,7 +157,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 
    <p>Get the latest weather, 24hr detailed forecast and seven day forecast for locations across Canada. Plus, view local radar and satellite imagery.</p>
-			<details id="gps-jq" style="width:85%">
+			<details id="gps-jq">
 			<summary id="gps-jq-summary">Get weather for your location</summary>
 			<div id="GPSResults"></div>
 
@@ -338,49 +338,8 @@ $(document).ready(function() {
        getGPSLocation();
   });
 
-function snoopCities(event, ui) {
-
-    switch(ui.item.label) {
-        case "Montréal, QC": {
-            $("#city").data("ref", "city/pages/qc-147_metric_e.html");
-            break;
-    		}
-    		 case "Ottawa (Kanata - Orléans), ON": {
-                $("#city").data("ref", "city/pages/on-118_metric_e.html");
-                break;
-    		}
-    		 case "Ottawa": {
-                $("#city").data("ref", "city/pages/on-118_metric_e.html");
-                break;
-    		}
-    		case "Toronto, ON": {
-                $("#city").data("ref", "city/pages/on-143_metric_e.html");
-                break;
-    		}
-    		case "Renfrew, ON": {
-                $("#city").data("ref", "city/pages/on-58_metric_e.html");
-                break;
-    		}
-
-    }
 }
 
-$("#city").autocomplete("option", "select", snoopCities);
-
-// if there's no city, just go to the default page
-$("#cityjump").on("submit", function(e) {
-    e.preventDefault();
-    var targetUrl = $("#city").data("ref");
-    if (targetUrl == null) {
-        window.location.href = "city/jump_e.html";
-    }
-    else {
-		    window.location.href = targetUrl;
-    }
-
-});
-
-});
 
 </script>
 
