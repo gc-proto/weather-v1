@@ -158,7 +158,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
    	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
    	<input id="city" type="text" name="city" />
    	<input type="submit" id="jump" class="" value="Go" />
-   	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
 	<div id="invalid-city"></div>
 </form>
 </div>
@@ -310,17 +309,17 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
     document.getElementById("jump").className = "";
     var max_chars = 50;
 
-    // $('#city').keydown( function(e){
-    //     if ($(this).val().length > max_chars) {
-    //         $(this).val($(this).val().substr(0, max_chars));
-    //     }
-    // });
-    //
-    // $('#city').keyup( function(e){
-    //     if ($(this).val().length > max_chars) {
-    //         $(this).val($(this).val().substr(0, max_chars));
-    //     }
-    // });
+    $('#city').keydown( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
+
+    $('#city').keyup( function(e){
+        if ($(this).val().length > max_chars) {
+            $(this).val($(this).val().substr(0, max_chars));
+        }
+    });
 </script>
 
 <script>LANG = "en-CA";</script><script src="./gps/js/translate.js"></script>
