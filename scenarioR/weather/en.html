@@ -130,16 +130,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
         <main role="main" property="mainContentOfPage" class="container">
             <div class="mwstext section"><h1 property="name" id="wb-cont" class="wb-inv">Welcome to Canada.ca</h1>
-              <div>
-              <form role="search" id="cityjump" method="GET" action="">
-              	<label for "city">Or enter a city to search</label>
-                 	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
-                 	<input id="city" type="text" name="city" />
-                 	<input type="submit" id="jump" class="" value="Go" />
-                 	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
-              	<div id="invalid-city"></div>
-              </form>
-              </div>
 <section>
  <div class="row">
   <div class="col-md-12">
@@ -157,12 +147,21 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 
    <p>Get the latest weather, 24hr detailed forecast and seven day forecast for locations across Canada. Plus, view local radar and satellite imagery.</p>
-			<details id="gps-jq">
+			<details id="gps-jq" style="width:85%">
 			<summary id="gps-jq-summary">Get weather for your location</summary>
 			<div id="GPSResults"></div>
 
 <!-- ACCESS CITY -->
-
+<div>
+<form role="search" id="cityjump" method="GET" action="">
+	<label for "city">Or enter a city to search</label>
+   	<label id="search-label" for="city" accesskey="g" class="wb-invisible">Find a city</label>
+   	<input id="city" type="text" name="city" />
+   	<input type="submit" id="jump" class="" value="Go" />
+   	<noscript><input type="submit" id="jumpnojs" value="Go" formnovalidate/></noscript>
+	<div id="invalid-city"></div>
+</form>
+</div>
    </details>
 
     </section>
@@ -310,13 +309,11 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <script>
     document.getElementById("jump").className = "";
     var max_chars = 50;
-
     $('#city').keydown( function(e){
         if ($(this).val().length > max_chars) {
             $(this).val($(this).val().substr(0, max_chars));
         }
     });
-
     $('#city').keyup( function(e){
         if ($(this).val().length > max_chars) {
             $(this).val($(this).val().substr(0, max_chars));
@@ -330,17 +327,48 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <script src="./gps/js/cityLatLon.js"></script>
 
 <script>
-
 $(document).ready(function() {
-
   $('#gps-jq-summary').click(function(){
      if (!$("#gps-jq").open)
        getGPSLocation();
   });
-
+function snoopCities(event, ui) {
+    switch(ui.item.label) {
+        case "Montréal, QC": {
+            $("#city").data("ref", "city/pages/qc-147_metric_e.html");
+            break;
+    		}
+    		 case "Ottawa (Kanata - Orléans), ON": {
+                $("#city").data("ref", "city/pages/on-118_metric_e.html");
+                break;
+    		}
+    		 case "Ottawa": {
+                $("#city").data("ref", "city/pages/on-118_metric_e.html");
+                break;
+    		}
+    		case "Toronto, ON": {
+                $("#city").data("ref", "city/pages/on-143_metric_e.html");
+                break;
+    		}
+    		case "Renfrew, ON": {
+                $("#city").data("ref", "city/pages/on-58_metric_e.html");
+                break;
+    		}
+    }
 }
-
-
+$("#city").autocomplete("option", "select", snoopCities);
+// if there's no city, just go to the default page
+$("#cityjump").on("submit", function(e) {
+    e.preventDefault();
+    var targetUrl = $("#city").data("ref");
+    if (targetUrl == null) {
+        window.location.href = "city/jump_e.html";
+    }
+    else {
+		    window.location.href = targetUrl;
+    }
+});
+});
 </script>
 
 
